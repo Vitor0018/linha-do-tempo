@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto 5.6 - Sergio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0F1C2E;
+  --graphite: #2B2F36;
+  --white: #F5F7FA;
+  --gold: #C6A75E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 100px 10%;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(145deg, #0F1C2E, #1a2a40);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.btn {
+  margin-top: 40px;
+  padding: 12px 28px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.intro {
+  background: var(--white);
+  color: var(--graphite);
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: var(--gold);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  padding: 20px;
+  margin: 40px 0;
+  background: var(--graphite);
+  border-left: 4px solid var(--gold);
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.timeline-photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  margin-right: 20px;
+  transition: transform 0.3s;
+}
+
+.timeline-item:nth-child(even) .timeline-photo {
+  order: 2;
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-item:nth-child(even) {
+  left: 55%;
+}
+
+.timeline-item h3 {
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border: 1px solid var(--gold);
+  width: 280px;
+  transition: 0.3s;
+  flex: 0 1 280px;
+}
+
+.card:hover {
+  transform: translateY(-10px) rotateY(5deg);
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.photo {
+  width: 240px;
+  height: 180px;
+  object-fit: cover;
+  border: 5px solid var(--gold);
+  margin: 20px;
+  transition: transform 0.3s;
+  perspective: 1000px;
+}
+
+.photo:hover {
+  transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+}
+
+.photos-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.messages {
+  background: var(--white);
+  color: var(--graphite);
+  text-align: center;
+}
+
+.pulsing-heart {
+  font-size: 200px;
+  animation: pulse 1.5s ease-in-out infinite;
+  margin: 40px 0;
+  display: block;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+footer {
+  background: var(--navy);
+  text-align: center;
+  padding: 40px;
+  color: var(--gold);
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<h1>A História de Sergio</h1>
+    <p>56 anos de coragem, superação e amor pela família</p>
+    <a href="#intro" class="btn">Conheça essa história</a>
+</section>
+
+<section class="intro" id="intro">
+  <h2>Bem-vindo Papai</h2>
+  <br><br>
+  <p>
+  Este não é apenas um site. É um tributo a um homem que transformou
+  dificuldades em força, vergonha em voz e sonhos em família</p>
+</section>
+
+<section class="timeline">
+  <div class="timeline-item">
+    <!-- exemplo de foto ao lado -->
+    <img src="pequeno.jpg" alt="Sergio em 1970" class="timeline-photo">
+    <div>
+      <h3>1970 – O Início</h3>
+      <p>
+      Sergio nasceu em 1970. Sempre curioso, inteligente e determinado.
+      Mesmo sofrendo bullying por ser gordinho e gago,
+      nunca deixou de estudar e tirar notas altas.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <img src="1987.jpg" alt="Sergio em 1985 a 1990" class="timeline-photo">
+    <div>
+      <h3>1985 – Superação</h3>
+      <p>
+      Na adolescência, decidiu vencer a gagueira.
+      Aos 15 anos já trabalhava para ajudar os pais.
+      Começou a treinar sua fala e mudou sua própria história.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <img src="1996.jpg" alt="Sergio em 1991" class="timeline-photo">
+    <div>
+      <h3>1990 – O FM das radios</h3>
+      <p>
+      Aos 20 anos se apaixonou pelo rádio.
+      Trabalhou na 96 e depois na 98.
+      O menino que tinha vergonha de falar
+      agora falava para multidões.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <img src="2006.jpg" alt="Sergio em 2006 a 2013" class="timeline-photo">
+    <div>
+      <h3>2007 – O Amor</h3>
+      <p>
+      Aos 36 anos conheceu o amor da vida dele.
+      Após 7 meses, se casaram.
+      Uma história que começou em uma festa.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <img src="20.jpg" alt="Sergio em 2014" class="timeline-photo">
+    <div>
+      <h3>2014 – A Advocacia</h3>
+      <p>
+      Em 2014 Sergio começou sua jornada na advocacia,
+      defendendo causas com paixão e determinação.
+      Uma nova fase profissional cheia de desafios.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <img src="2015.jpg" alt="Sergio em 2015 a 2019" class="timeline-photo">
+    <div>
+      <h3>2015 – A Família</h3>
+      <p>
+      Recebeu uma ligação da adoção.
+      Dois filhos chegaram Pedro Vitor e João Vitor.
+      E em 2017 e 2019 a família cresceu ainda mais com Saulo e Valentina .
+      Vieram desafios, pandemia, mas também união.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <img src="agr.jpeg" alt="Sergio em 2026" class="timeline-photo">
+    <div>
+      <h3>2026 – A Versão Atual</h3>
+      <p>
+      56 anos depois, Sergio continua em constante evolução,
+      um trabalhador incansável, amigo leal e figura inspiradora.
+      Sempre em frente, sempre crescendo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="messages">
+  <h2>Mural de Recados</h2>
+
+  <div class="pulsing-heart">❤️</div>
+
+  <div class="cards-wrapper">
+    <div class="card">
+      <h4>Pedro</h4>
+      <p>Papai, eu nunca vou esquecer ou enjoar de dizer papai pro resto da minha vida, sabe o por que? porque o senhor é especial pra mim. Eu amo muito você, mesmo que o senhor questione um amor de um filho com o pai e mãe. Mas muito obrigado por nunca desistir e por ser nosso exemplo.</p>
+    </div>
+
+    <div class="card">
+      <h4>Família</h4>
+      <p>Que venham muitos anos de alegria, sabedoria  e churrascos!</p>
+    </div>
+
+    <div class="card">
+      <h4>Mainha</h4>
+      <p>Feliz aniversário para o homem que torna minha vida completa!
+           Sou muito grata por cada momento ao seu lado e por todo o apoio que você me dá. 
+           Que seu novo ciclo seja repleto de saúde, conquistas e que nosso amor continue crescendo. 
+           Que sorte a minha ter um marido que é também meu melhor amigo (e que aguenta todas as minhas loucuras). Que seu dia seja tão incrível quanto você! Que hoje seja o início de um ano espetacular.
+           Obrigado por ser quem você é, esse homem perfeito que me faz extremamente feliz!</p>
+    </div>
+
+    <div class="card">
+      <h4>Saulo</h4>
+      <p>Papai querido do meu coração, hoje é um dia especial igual a você em todas as nossas vidas,obrigado papai ❤️!</p>
+    </div>
+
+    <div class="card">
+      <h4>Valentina</h4>
+      <p>Papai, eu te amo, que hoje seja um dia muito feliz. que Deus te abençoe e te dê muita saúde, obrigado por tudo que você faz por mim e por toda a nossa família, feliz aniversário ❤️!</p>
+    </div>
+
+    <div class="card">
+      <h4>João</h4>
+      <p>Bom dia, te amo :) 
+       Feliz aniversário. hoje é comemorado mais um ano de vida.Nós te amamos muito. que o seu dia seja abençoado por Deus,e que eu possa comemorar muitos anos de vida com você. Obrigado por tudo que você faz por mim e por toda a nossa família, feliz aniversário ❤️!</p>
+    </div>
+  </div>
+
+  <div class="photos-wrapper">
+    <img src="pequeno.jpg" alt="Foto de Sergio jovem" class="photo">
+    <img src="familia.jpg" alt="Foto da família" class="photo">
+    <img src="fa.jpg" alt="Foto da família" class="photo">
+    <img src="po.jpg" alt="Foto da família" class="photo">
+    <img src="pop.jpg" alt="Foto da família" class="photo">
+  </div>
+</section>
+
+<footer>
+  Obrigado por ser nosso porto seguro e o Nosso herói ❤️<br>
+  Feito com amor pela sua família – 2026
+</footer>
+
+<script>
+const items = document.querySelectorAll(".timeline-item");
+
+function reveal() {
+  items.forEach(item => {
+    const windowHeight = window.innerHeight;
+    const elementTop = item.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      item.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", reveal);
+reveal();
+
+// efeito 3D no movimento do mouse
+const allPhotos = document.querySelectorAll('.photo');
+allPhotos.forEach(photo => {
+  photo.addEventListener('mousemove', (e) => {
+    const rect = photo.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width/2;
+    const y = e.clientY - rect.top - rect.height/2;
+    photo.style.transform = `rotateY(${x/20}deg) rotateX(${ -y/20}deg) scale(1.05)`;
+  });
+  photo.addEventListener('mouseleave', () => {
+    photo.style.transform = '';
+  });
+});
+</script>
+
+</body>
+</html>
